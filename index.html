@@ -82,6 +82,14 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 
 /* tips */
 .tipcommon{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:16px}
+.linkcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.linkrow{display:flex;align-items:center;gap:10px;padding:13px 14px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.linkrow:first-child{border-top:none}
+.linkrow:active{background:#f5f3ee}
+.linkrow .lt{flex:1;min-width:0}
+.linkrow .ln{font-size:14px;font-weight:700}
+.linkrow .lu{font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.linkrow .go{color:var(--mut);flex:0 0 auto}
 .tipcommon .t{font-size:13px;padding:5px 0}
 .acc{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
 .acc>summary{list-style:none;padding:13px 14px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:9px;cursor:pointer}
@@ -92,6 +100,42 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 .mini{color:#fff;font-weight:800;font-size:12px;border-radius:6px;padding:2px 8px}
 .chev{margin-left:auto;color:var(--mut);transition:.2s}
 .acc[open] .chev{transform:rotate(180deg)}
+
+/* expense */
+.exp-sum{background:var(--accent);color:#fff;border-radius:16px;padding:15px 18px;margin-bottom:14px}
+.exp-sum .big{font-size:27px;font-weight:800;letter-spacing:-.01em}
+.exp-sum .sm{font-size:12.5px;opacity:.88;margin-top:2px}
+.addbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:11px}
+.amtrow{display:flex;gap:8px;margin-bottom:10px}
+.amtrow input.amt{flex:1;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:18px;font-weight:800;text-align:right;-webkit-appearance:none}
+.curbtn{border:1.5px solid var(--line);background:#f0ede4;border-radius:10px;padding:0 15px;font-weight:800;font-size:14px;cursor:pointer}
+.curbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.catpill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;color:#5a645c}
+.exprow2{display:flex;gap:8px;margin-bottom:10px}
+.exprow2 select{flex:0 0 auto;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px;background:#fff}
+.exprow2 input{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px}
+.addbtn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:800;cursor:pointer}
+.presets{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}
+.presets::-webkit-scrollbar{display:none}
+.preset{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.vtabs{display:flex;gap:6px;margin-bottom:12px}
+.vtab{flex:1;text-align:center;padding:9px;border-radius:9px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:700;color:#5a645c;cursor:pointer}
+.vtab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ei{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:7px}
+.ei .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+.ei .ec{flex:1;min-width:0}.ei .en{font-size:14px;font-weight:600}.ei .em{font-size:11.5px;color:var(--mut)}
+.ei .ev{font-weight:800;font-size:14px;white-space:nowrap}
+.ei .del{color:#c1352b;font-weight:800;padding:2px 4px 2px 8px;cursor:pointer;font-size:17px}
+.dh{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin:16px 2px 8px;color:#333}
+.barrow{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.barrow .bl{flex:0 0 90px;font-size:13px;font-weight:700}
+.bar{flex:1;height:15px;background:#ece8de;border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px}
+.barrow .bv{flex:0 0 auto;font-size:12px;font-weight:800;color:#555;min-width:96px;text-align:right}
+.donut{display:block;margin:4px auto 16px}
+.empty{text-align:center;color:var(--mut);font-size:13.5px;padding:30px 0}
+.expexport{width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;color:#333}
 
 /* tabbar */
 .tabbar{position:fixed;bottom:0;left:0;right:0;max-width:640px;margin:0 auto;background:rgba(255,255,255,.96);
@@ -106,7 +150,7 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 <body>
 <div class="top">
   <h1>🇨🇭 스위스 11박 12일</h1>
-  <div class="sub" id="subline">2026.7.24 – 8.4 · 로잔→체르마트→인터라켄→루체른</div>
+  <div class="sub" id="subline">2026.7.23 – 8.4 · 상하이 경유 · 로잔→체르마트→인터라켄→루체른</div>
 </div>
 
 <!-- 일정 -->
@@ -126,17 +170,25 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 
 <!-- 팁 -->
 <section id="v-tip" class="hide"><div class="wrap" id="tipview"></div></section>
+<section id="v-exp" class="hide"><div class="wrap" id="expview"></div></section>
 
 <div class="tabbar">
   <button class="tab on" data-v="day"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>일정</button>
+  <button class="tab" data-v="exp"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2.5"/><path d="M2 10h20M16 14.5h2.5"/></svg>가계부</button>
   <button class="tab" data-v="check"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>체크</button>
   <button class="tab" data-v="cost"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>비용</button>
   <button class="tab" data-v="tip"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0012 2z"/></svg>팁</button>
 </div>
 
 <script>
-const RC={"로잔":"#3A6E8F","체르마트":"#C1352B","인터라켄":"#2E7D54","루체른":"#5A5168"};
+const RC={"상하이":"#C08A2E","로잔":"#3A6E8F","체르마트":"#C1352B","인터라켄":"#2E7D54","루체른":"#5A5168"};
 const DAYS=[
+ {id:"D0",date:"7/23",dow:"수",iso:"2026-07-23",region:"상하이",title:"상하이 푸둥 경유 (레이오버)",
+  warn:"환승이라 짐 최소·시간 엄수. 상하이 밤 공항 복귀는 여유 있게(늦어도 23시).",
+  tip:"한국 여권 30일 무비자 입국(도착카드). 알리페이·디디 미리 세팅·로밍/VPN. 와이탄 야경이 하이라이트.",
+  items:[["16:15","인천 출발",""],["17:20","상하이 푸둥(PVG) 도착","무비자 입국·도착카드"],
+   ["18:00","시내로 이동","마글레브+지하철2 또는 디디/택시"],["19:00","와이탄(The Bund) 야경","황푸강 스카이라인"],
+   ["20:00","상하이 저녁","샤오롱바오 등"],["22:00","공항 복귀","택시/디디(24h)"],["01:30","상하이 → 제네바 출발",""]]},
  {id:"D1",date:"7/24",dow:"금",iso:"2026-07-24",region:"로잔",title:"로잔 시내 · 대성당 · 올림픽 박물관",
   warn:"실내 3곳(대성당·PLATEFORME 10·올림픽 박물관) ~18시 마감 → 대성당 오전 먼저, 올림픽 16시 입장. 시차(-7h).",
   tip:"로잔 시티패스(학생 CHF25·ISIC)로 3곳 입장+교통 커버. 에어비앤비라 무료 교통카드 X. 로잔행 열차 오른쪽이 호수.",
@@ -218,6 +270,8 @@ const DAYS=[
 ];
 
 const MAPS={
+ "상하이 푸둥(PVG) 도착":"Shanghai Pudong International Airport","와이탄(The Bund) 야경":"The Bund, Shanghai",
+ "상하이 저녁":"Nanjing Road, Shanghai",
  "숙소 짐 보관":"Rue Mauborget 3, Lausanne","대성당+첨탑·구시가":"Cathédrale de Lausanne",
  "Holy Cow! 점심":"Holy Cow Cheneau-de-Bourg, Lausanne","PLATEFORME 10 미술관":"Plateforme 10, Lausanne",
  "올림픽 박물관+공원":"Musée Olympique, Lausanne","우시 호반 산책·이른 저녁":"Ouchy, Lausanne",
@@ -259,13 +313,20 @@ const COMMON=["산악 교통 15~30분 간격 — 한 번 놓치면 도미노, �
  "반영 사진(리펠제·슈텔리제)은 무풍 이른 아침이 베스트",
  "고지대는 여름에도 쌀쌀 → 겉옷 상비, 산악 첫차가 한산"];
 
+const LINKS=[
+ ["로잔 시티패스","https://www.lausanne-tourisme.ch/en/offer/lausanne-city-pass/"],
+ ["외쉬넨 호수 웹캠","https://www.oeschinensee.ch/en/webcams/"],
+ ["슈토스 하이킹 웹캠","https://www.stoos.ch/en/pages/webcams"],
+ ["슈토스 패스","https://www.stoos.ch/en/pages/peak-experience-ticket-day-multi-day-tickets"]
+];
+
 const COST={
  passes:[["하프 페어 카드","전 일정","CHF 150",true],["세이버 데이패스 ×2","D6·D10","CHF 88",true],
   ["동신항운 VIP 3일","D7~9 · 7/28 수령","CHF 225",false],["로잔 시티패스(학생)","D1·ISIC","CHF 25",false]],
  tickets:[["GVA→로잔 (SS+HF)","","CHF 9.60",true],["로잔→체르마트 (SS+HF)","","CHF 23.40",true],
   ["체르마트→인터라켄 13:37","예매 예정","~CHF 25",false],["루체른→취리히공항 (SS+HF)","","CHF 11.60",true]],
- stay:[["로잔","2박","136,422원"],["체르마트","2박","459,800원"],["인터라켄","5박","1,572,401원"],
-  ["루체른","2박","434,524원"],["숙소 합계","11박·2인","2,603,147원"]],
+ stay:[["로잔","2박","272,844원"],["체르마트","2박","459,800원"],["인터라켄","5박","1,572,401원"],
+  ["루체른","2박","434,524원"],["숙소 합계","11박·2인","2,739,569원"]],
  onsite:[["고르너그라트 (D4)","HF","CHF 66"],["외쉬넨 곤돌라+블라우제 (D6)","","CHF 27"],
   ["First 트로티바이크 (D9)","쿠폰50%","~CHF 21"],["알멘드후벨 푸니쿨라 (D9)","HF","~CHF 7"],
   ["슈토스 정상권 (D11)","HF","~CHF 40"],["입장료 (시옹성·고르너협곡 등)","","CHF 5~20"]],
@@ -361,16 +422,24 @@ function renderCost(){
   <div class="sec">✈️ 항공</div><div class="card"><div class="crow"><div class="l">왕복</div><div class="v">${COST.flight.replace('2인 왕복 ','')}</div></div></div>
   <div class="sec">🔁 환율 계산기</div>
   <div class="conv">CHF <input id="chf" type="number" value="100" inputmode="decimal">
-   × <input id="rate" type="number" value="1600" inputmode="decimal">
-   <span class="eq" id="krw">160,000원</span></div>`;
- const calc=()=>{const v=(+el("chf").value||0)*(+el("rate").value||0);
-  el("krw").textContent=Math.round(v).toLocaleString()+"원";};
- el("chf").oninput=calc;el("rate").oninput=calc;
+   × <input id="rate" type="number" value="1850" inputmode="decimal">
+   <span class="eq" id="krw">185,000원</span></div>
+  <div class="conv">¥ <input id="cny" type="number" value="100" inputmode="decimal">
+   × <input id="cnyrate" type="number" value="220" inputmode="decimal">
+   <span class="eq" id="cnykrw">22,000원</span></div>`;
+ const calc=()=>{const r=+el("rate").value||1850;S.set("swiss_rate",r);
+  el("krw").textContent=Math.round((+el("chf").value||0)*r).toLocaleString()+"원";};
+ const calc2=()=>{const r=+el("cnyrate").value||220;S.set("swiss_cny",r);
+  el("cnykrw").textContent=Math.round((+el("cny").value||0)*r).toLocaleString()+"원";};
+ el("chf").oninput=calc;el("rate").oninput=calc;el("cny").oninput=calc2;el("cnyrate").oninput=calc2;
 }
 
 /* tips */
 function renderTip(){
- let h=`<div class="sec">🧭 공통</div><div class="tipcommon">`+
+ let h=`<div class="sec">🔗 링크 모음</div><div class="linkcard">`+
+  LINKS.map(l=>{const dom=l[1].replace(/^https?:\/\//,'').split('/')[0];
+   return `<a class="linkrow" href="${l[1]}" target="_blank" rel="noopener"><div class="lt"><div class="ln">${l[0]}</div><div class="lu">${dom}</div></div><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>`;}).join("")+`</div>`;
+ h+=`<div class="sec">🧭 공통</div><div class="tipcommon">`+
   COMMON.map(t=>`<div class="t">· ${t}</div>`).join("")+`</div><div class="sec">📅 날짜별</div>`;
  DAYS.forEach(d=>{
   if(!d.warn&&!d.tip)return;
@@ -390,11 +459,125 @@ document.querySelectorAll(".tab").forEach(t=>{
  t.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");
   const v=t.getAttribute("data-v");
-  ["day","check","cost","tip"].forEach(k=>el("v-"+k).classList.toggle("hide",k!==v));
-  if(v==="check")renderCheck();if(v==="cost")renderCost();if(v==="tip")renderTip();
+  ["day","exp","check","cost","tip"].forEach(k=>el("v-"+k).classList.toggle("hide",k!==v));
+  if(v!=="day")document.documentElement.style.setProperty('--accent','#2E7D54');else renderDay();
+  if(v==="check")renderCheck();if(v==="cost")renderCost();if(v==="tip")renderTip();if(v==="exp")renderExp();
   window.scrollTo(0,0);
  };
 });
+
+/* ===== 가계부 ===== */
+const CATS=[["식비","🍴","#E8552D"],["교통","🚡","#3A6E8F"],["입장·액티비티","🎫","#2E7D54"],
+ ["쇼핑","🛍️","#B9791F"],["간식","☕","#9B6A4A"],["숙소","🏨","#5A5168"],["기타","🔖","#8A938B"]];
+const PRESETS=[];
+let expForm={cur:"CHF",cat:"식비"},expView="cat";
+const getExp=()=>S.get("swiss_exp")||[];
+const setExp=a=>S.set("swiss_exp",a);
+const getRate=()=>S.get("swiss_rate")||1850;
+const getCny=()=>S.get("swiss_cny")||220;
+const catMeta=n=>CATS.find(c=>c[0]===n)||CATS[6];
+const toCHF=(e,r)=>e.cur==="CHF"?e.amt:(e.cur==="CNY"?e.amt*getCny()/r:e.amt/r);
+
+function renderExp(){
+ const exp=getExp(),rate=getRate();
+ const tot=exp.reduce((s,e)=>s+toCHF(e,rate),0);
+ let h=`<div class="exp-sum"><div class="sm">총 지출 · ${exp.length}건</div>
+   <div class="big">${Math.round(tot*rate).toLocaleString()}원</div>
+   <div class="sm">≈ CHF ${tot.toFixed(2)} · 환율 ${rate}</div></div>
+  <div class="addbox">
+   <div class="amtrow"><input class="amt" id="eamt" type="number" inputmode="decimal" placeholder="금액">
+     <button class="curbtn on" id="curtoggle">${expForm.cur}</button></div>
+   <div class="cats" id="ecats"></div>
+   <div class="exprow2"><select id="eday"></select><input id="ememo" placeholder="메모 (선택)"></div>
+   <button class="addbtn" id="eadd">+ 추가</button></div>
+  ${PRESETS.length?'<div class="presets" id="epresets"></div>':''}
+  <div class="vtabs">
+   <div class="vtab" data-ev="cat">카테고리</div><div class="vtab" data-ev="day">날짜별</div><div class="vtab" data-ev="list">목록</div></div>
+  <div id="expbody"></div>
+  <button class="expexport" id="ecsv">📋 CSV 복사 · 내보내기</button>`;
+ el("expview").innerHTML=h;
+ syncCat();syncCur();
+ el("eday").innerHTML=`<option value="">날짜(선택)</option>`+DAYS.map(d=>`<option value="${d.id}">${d.id} · ${d.date}</option>`).join("");
+ if(PRESETS.length)el("epresets").innerHTML=PRESETS.map((p,i)=>`<span class="preset" data-p="${i}">${catMeta(p[1])[1]} ${p[0]}${p[2]?` ${p[2]}`:''}</span>`).join("");
+ document.querySelectorAll(".vtab").forEach(v=>{v.classList.toggle("on",v.dataset.ev===expView);
+   v.onclick=()=>{expView=v.dataset.ev;document.querySelectorAll(".vtab").forEach(x=>x.classList.toggle("on",x===v));renderBody()};});
+ el("curtoggle").onclick=()=>{expForm.cur=expForm.cur==="CHF"?"₩":(expForm.cur==="₩"?"¥":"CHF");syncCur()};
+ el("eadd").onclick=addExp;
+ el("ecsv").onclick=expCSV;
+ if(PRESETS.length)document.querySelectorAll("#epresets .preset").forEach(p=>p.onclick=()=>{
+   const pr=PRESETS[+p.dataset.p];expForm.cat=pr[1];syncCat();
+   if(pr[2]){el("eamt").value=pr[2];}el("eamt").focus();});
+ renderBody();
+}
+function syncCat(){el("ecats").innerHTML=CATS.map(c=>{const on=expForm.cat===c[0];
+   return `<span class="catpill" data-cat="${c[0]}" style="${on?`background:${c[2]};color:#fff;border-color:${c[2]}`:''}">${c[1]} ${c[0]}</span>`;}).join("");
+ document.querySelectorAll("#ecats .catpill").forEach(p=>p.onclick=()=>{expForm.cat=p.dataset.cat;syncCat()});}
+function syncCur(){const b=el("curtoggle");b.textContent=expForm.cur;}
+function addExp(){
+ const amt=parseFloat(el("eamt").value);if(!amt||amt<=0){el("eamt").focus();return;}
+ const exp=getExp();
+ exp.push({id:Date.now(),amt:amt,cur:expForm.cur==="₩"?"KRW":(expForm.cur==="¥"?"CNY":"CHF"),cat:expForm.cat,
+   day:el("eday").value,memo:el("ememo").value.trim(),ts:Date.now()});
+ setExp(exp);renderExp();
+}
+function delExp(id){const exp=getExp().filter(e=>e.id!==id);setExp(exp);renderExp();}
+function fmt(e){if(e.cur==="CHF")return "CHF "+e.amt.toFixed(2);
+ if(e.cur==="CNY")return "¥"+(e.amt%1?e.amt.toFixed(2):e.amt.toLocaleString());
+ return "₩"+Math.round(e.amt).toLocaleString();}
+function renderBody(){
+ const exp=getExp(),rate=getRate(),body=el("expbody");
+ if(!exp.length){body.innerHTML=`<div class="empty">아직 지출이 없어요.<br>위에서 금액·카테고리 골라 추가해 보세요 💸</div>`;return;}
+ const tot=exp.reduce((s,e)=>s+toCHF(e,rate),0);
+ if(expView==="cat"){
+  const by={};CATS.forEach(c=>by[c[0]]=0);exp.forEach(e=>by[e.cat]=(by[e.cat]||0)+toCHF(e,rate));
+  const parts=CATS.map(c=>({color:c[2],val:by[c[0]]})).filter(p=>p.val>0);
+  let h=donut(parts,tot,rate);
+  h+=CATS.filter(c=>by[c[0]]>0).sort((a,b)=>by[b[0]]-by[a[0]]).map(c=>{
+    const v=by[c[0]],pct=tot?Math.round(v/tot*100):0;
+    return `<div class="barrow"><div class="bl">${c[1]} ${c[0]}</div>
+      <div class="bar"><i style="width:${pct}%;background:${c[2]}"></i></div>
+      <div class="bv">${Math.round(v*rate).toLocaleString()}원 · ${pct}%</div></div>`;}).join("");
+  body.innerHTML=h;
+ } else if(expView==="day"){
+  let h="";const order=DAYS.map(d=>d.id).concat([""]);
+  order.forEach(did=>{
+   const es=exp.filter(e=>e.day===did);if(!es.length)return;
+   const sub=es.reduce((s,e)=>s+toCHF(e,rate),0);
+   const d=DAYS.find(x=>x.id===did);
+   h+=`<div class="dh"><span>${did?`${did} · ${d?d.date:''}`:'날짜 미지정'}</span><span>${Math.round(sub*rate).toLocaleString()}원</span></div>`;
+   h+=es.map(rowHTML).join("");
+  });
+  body.innerHTML=h;
+ } else {
+  body.innerHTML=exp.slice().sort((a,b)=>b.ts-a.ts).map(rowHTML).join("");
+ }
+}
+function rowHTML(e){const c=catMeta(e.cat);
+ return `<div class="ei"><span class="dot" style="background:${c[2]}"></span>
+  <div class="ec"><div class="en">${c[1]} ${e.memo||e.cat}</div>
+   <div class="em">${e.day?e.day+' · ':''}${e.cat}</div></div>
+  <div class="ev">${fmt(e)}</div><span class="del" onclick="delExp(${e.id})">×</span></div>`;}
+function donut(parts,total,rate){
+ const r=52,c=2*Math.PI*r,cx=70,cy=70;let off=0;
+ const segs=parts.map(p=>{const len=total?p.val/total*c:0;
+   const s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${p.color}" stroke-width="20"
+     stroke-dasharray="${len} ${c-len}" stroke-dashoffset="${-off}" transform="rotate(-90 ${cx} ${cy})"/>`;
+   off+=len;return s;}).join("");
+ return `<svg class="donut" width="140" height="140" viewBox="0 0 140 140">${segs}
+   <text x="70" y="65" text-anchor="middle" font-size="11" fill="#8A938B">총 지출</text>
+   <text x="70" y="84" text-anchor="middle" font-size="13" font-weight="800" fill="#232B27">${Math.round(total*rate).toLocaleString()}원</text></svg>`;
+}
+function expCSV(){
+ const exp=getExp();if(!exp.length){alert("내보낼 지출이 없어요.");return;}
+ const rows=[["날짜","항목","카테고리","통화","금액"]].concat(
+   exp.slice().sort((a,b)=>a.ts-b.ts).map(e=>[e.day||"",e.memo||e.cat,e.cat,e.cur,e.amt]));
+ const csv=rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(",")).join("\n");
+ try{navigator.clipboard&&navigator.clipboard.writeText(csv);}catch(e){}
+ const a=document.createElement("a");
+ a.href="data:text/csv;charset=utf-8,\uFEFF"+encodeURIComponent(csv);
+ a.download="스위스_가계부.csv";document.body.appendChild(a);a.click();a.remove();
+ alert("CSV를 클립보드에 복사하고 파일로 내려받았어요.");
+}
 
 /* init: jump to today if in range */
 (function(){
