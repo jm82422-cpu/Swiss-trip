@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="스위스">
+<meta name="theme-color" content="#2E7D54">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB6klEQVR4nO3cwQkCQRBFQRUzWUHQ/EMRVjAYE/CdxF5ZqhKYOTz6+I/rcjvAJ6etP8D/EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHKTz1h/4levrMfnc83KffG6Gy0ESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcpOO63MYeG97p2qux/TGXgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCNDsZNGh6nGxtxm+RykMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdpt5tgfM/lIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImD9AYlag77zwxMwwAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB6klEQVR4nO3cwQkCQRBFQRUzWUHQ/EMRVjAYE/CdxF5ZqhKYOTz6+I/rcjvAJ6etP8D/EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHKTz1h/4levrMfnc83KffG6Gy0ESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcpOO63MYeG97p2qux/TGXgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCNDsZNGh6nGxtxm+RykMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdpt5tgfM/lIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImD9AYlag77zwxMwwAAAABJRU5ErkJggg==">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22%EC%8A%A4%EC%9C%84%EC%8A%A4%2011%EB%B0%9512%EC%9D%BC%22%2C%22short_name%22%3A%22%EC%8A%A4%EC%9C%84%EC%8A%A4%22%2C%22display%22%3A%22standalone%22%2C%22start_url%22%3A%22.%22%2C%22background_color%22%3A%22%23F5F3EE%22%2C%22theme_color%22%3A%22%232E7D54%22%7D">
+<title>스위스 11박12일</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#F5F3EE;--card:#fff;--ink:#232B27;--mut:#8A938B;--line:#E6E1D6;--accent:#2E7D54}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
+  line-height:1.5;padding-bottom:74px;max-width:640px;margin:0 auto;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.92);backdrop-filter:blur(8px);
+  padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.top h1{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.top .sub{font-size:12px;color:var(--mut);font-weight:600;margin-top:1px}
+.wrap{padding:14px 16px 20px}
+.hide{display:none}
+
+/* day pills */
+.pills{display:flex;gap:7px;overflow-x:auto;padding:12px 16px 6px;scrollbar-width:none;position:sticky;top:53px;z-index:15;
+  background:rgba(245,243,238,.92);backdrop-filter:blur(8px)}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);
+  font-size:13px;font-weight:700;color:#5a645c;display:flex;flex-direction:column;align-items:center;min-width:52px;line-height:1.15}
+.pill small{font-size:10px;color:var(--mut);font-weight:600}
+.pill.on{color:#fff;border-color:transparent}
+.pill.today{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--accent)}
+
+/* day head */
+.dhead{display:flex;align-items:center;gap:9px;margin:4px 0 12px}
+.dbadge{color:#fff;font-weight:800;font-size:15px;border-radius:8px;padding:4px 11px}
+.dhead .dt{font-weight:800;font-size:16px}
+.dhead .rg{margin-left:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.dtitle{font-size:15px;font-weight:800;color:#333;margin:-6px 0 14px}
+
+/* timeline */
+.row{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.rt{flex:0 0 52px;font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
+.rc{flex:1}
+.ra{font-size:14.5px;font-weight:600}
+.rn{font-size:12.5px;color:var(--mut);margin-top:2px}
+.rmap{flex:0 0 auto;align-self:center;width:36px;height:36px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;background:#f0ede4;text-decoration:none;margin-left:4px}
+.rmap:active{background:#e4dfd2}
+.rmap svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.row.next{background:#fff;border-radius:12px;padding:11px 12px;border:none;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.nexttag{display:inline-block;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 6px;margin-bottom:3px}
+
+/* checklist */
+.prog{height:8px;background:#e6e1d6;border-radius:99px;overflow:hidden;margin:2px 0 16px}
+.prog>i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+.cgrp{font-size:12px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin:18px 0 7px}
+.citem{display:flex;gap:11px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:12px 13px;margin-bottom:8px;cursor:pointer}
+.cbox{flex:0 0 22px;height:22px;border:2px solid #cfd6cf;border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:14px;color:#fff;transition:.15s;margin-top:1px}
+.citem.done .cbox{background:var(--accent);border-color:var(--accent)}
+.citem.done .ctext{color:var(--mut);text-decoration:line-through}
+.ctext{font-size:14px;font-weight:600}
+
+/* cost */
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 14px;margin-bottom:14px}
+.crow{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.crow:first-child{border-top:none}
+.crow .l{font-weight:600}.crow .l small{color:var(--mut);font-weight:600;font-size:12px}
+.crow .v{font-weight:800;white-space:nowrap}
+.crow.tot{border-top:2px solid var(--ink)}
+.crow.tot .v{color:var(--accent)}
+.done-badge{font-size:10px;color:#2E7D54;font-weight:800;background:#e7f1ea;border-radius:5px;padding:1px 6px;margin-left:6px}
+.sec{font-size:13px;font-weight:800;margin:4px 2px 8px;color:#333}
+.conv{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:14px;font-size:14px}
+.conv input{width:70px;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:14px;font-weight:700;text-align:right}
+.conv .eq{font-weight:800;color:var(--accent);margin-left:auto}
+
+/* tips */
+.tipcommon{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:16px}
+.linkcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.linkrow{display:flex;align-items:center;gap:10px;padding:13px 14px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.linkrow:first-child{border-top:none}
+.linkrow:active{background:#f5f3ee}
+.linkrow .lt{flex:1;min-width:0}
+.linkrow .ln{font-size:14px;font-weight:700}
+.linkrow .lu{font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.linkrow .go{color:var(--mut);flex:0 0 auto}
+.tipcommon .t{font-size:13px;padding:5px 0}
+.acc{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.acc>summary{list-style:none;padding:13px 14px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:9px;cursor:pointer}
+.acc>summary::-webkit-details-marker{display:none}
+.acc[open]>summary{border-bottom:1px solid var(--line)}
+.acc .body{padding:12px 14px;font-size:13.5px}
+.acc .body p{padding:4px 0}
+.mini{color:#fff;font-weight:800;font-size:12px;border-radius:6px;padding:2px 8px}
+.chev{margin-left:auto;color:var(--mut);transition:.2s}
+.acc[open] .chev{transform:rotate(180deg)}
+
+/* expense */
+.exp-sum{background:var(--accent);color:#fff;border-radius:16px;padding:15px 18px;margin-bottom:14px}
+.exp-sum .big{font-size:27px;font-weight:800;letter-spacing:-.01em}
+.exp-sum .sm{font-size:12.5px;opacity:.88;margin-top:2px}
+.addbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:11px}
+.amtrow{display:flex;gap:8px;margin-bottom:10px}
+.amtrow input.amt{flex:1;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:18px;font-weight:800;text-align:right;-webkit-appearance:none}
+.curbtn{border:1.5px solid var(--line);background:#f0ede4;border-radius:10px;padding:0 15px;font-weight:800;font-size:14px;cursor:pointer}
+.curbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.catpill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;cursor:pointer;color:#5a645c}
+.exprow2{display:flex;gap:8px;margin-bottom:10px}
+.exprow2 select{flex:0 0 auto;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px;background:#fff}
+.exprow2 input{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px}
+.addbtn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:800;cursor:pointer}
+.presets{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}
+.presets::-webkit-scrollbar{display:none}
+.preset{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.vtabs{display:flex;gap:6px;margin-bottom:12px}
+.vtab{flex:1;text-align:center;padding:9px;border-radius:9px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:700;color:#5a645c;cursor:pointer}
+.vtab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ei{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:7px}
+.ei .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+.ei .ec{flex:1;min-width:0}.ei .en{font-size:14px;font-weight:600}.ei .em{font-size:11.5px;color:var(--mut)}
+.ei .ev{font-weight:800;font-size:14px;white-space:nowrap}
+.ei .del{color:#c1352b;font-weight:800;padding:2px 4px 2px 8px;cursor:pointer;font-size:17px}
+.dh{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin:16px 2px 8px;color:#333}
+.barrow{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.barrow .bl{flex:0 0 90px;font-size:13px;font-weight:700}
+.bar{flex:1;height:15px;background:#ece8de;border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px}
+.barrow .bv{flex:0 0 auto;font-size:12px;font-weight:800;color:#555;min-width:96px;text-align:right}
+.donut{display:block;margin:4px auto 16px}
+.empty{text-align:center;color:var(--mut);font-size:13.5px;padding:30px 0}
+.expexport{width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;color:#333}
+
+/* tabbar */
+.tabbar{position:fixed;bottom:0;left:0;right:0;max-width:640px;margin:0 auto;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;padding:6px 4px 10px;z-index:30}
+.tab{flex:1;background:none;border:none;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:2px;
+  color:var(--mut);font-size:11px;font-weight:700;cursor:pointer}
+.tab svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab.on{color:var(--accent)}
+.foot{text-align:center;font-size:11px;color:var(--mut);padding:18px 10px 6px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>🇨🇭 스위스 11박 12일</h1>
+  <div class="sub" id="subline">2026.7.23 – 8.4 · 상하이 경유 · 로잔→체르마트→인터라켄→루체른</div>
+</div>
+
+<!-- 일정 -->
+<section id="v-day">
+  <div class="pills" id="pills"></div>
+  <div class="wrap" id="dayview"></div>
+</section>
+
+<!-- 체크리스트 -->
+<section id="v-check" class="hide"><div class="wrap">
+  <div class="prog"><i id="progbar"></i></div>
+  <div id="checklist"></div>
+</div></section>
+
+<!-- 비용 -->
+<section id="v-cost" class="hide"><div class="wrap" id="costview"></div></section>
+
+<!-- 팁 -->
+<section id="v-tip" class="hide"><div class="wrap" id="tipview"></div></section>
+<section id="v-exp" class="hide"><div class="wrap" id="expview"></div></section>
+
+<div class="tabbar">
+  <button class="tab on" data-v="day"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>일정</button>
+  <button class="tab" data-v="exp"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2.5"/><path d="M2 10h20M16 14.5h2.5"/></svg>가계부</button>
+  <button class="tab" data-v="check"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>체크</button>
+  <button class="tab" data-v="cost"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>비용</button>
+  <button class="tab" data-v="tip"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0012 2z"/></svg>팁</button>
+</div>
+
+<script>
+const RC={"상하이":"#C08A2E","로잔":"#3A6E8F","체르마트":"#C1352B","인터라켄":"#2E7D54","루체른":"#5A5168"};
+const DAYS=[
+ {id:"D0",date:"7/23",dow:"수",iso:"2026-07-23",region:"상하이",title:"상하이 푸둥 경유 (레이오버)",
+  warn:"환승이라 짐 최소·시간 엄수. 상하이 밤 공항 복귀는 여유 있게(늦어도 23시).",
+  tip:"한국 여권 30일 무비자 입국(도착카드). 알리페이·디디 미리 세팅·로밍/VPN. 와이탄 야경이 하이라이트.",
+  items:[["16:15","인천 출발",""],["17:20","상하이 푸둥(PVG) 도착","무비자 입국·도착카드"],
+   ["18:00","시내로 이동","마글레브+지하철2 또는 디디/택시"],["19:00","와이탄(The Bund) 야경","황푸강 스카이라인"],
+   ["20:00","상하이 저녁","샤오롱바오 등"],["22:00","공항 복귀","택시/디디(24h)"],["01:30","상하이 → 제네바 출발",""]]},
+ {id:"D1",date:"7/24",dow:"금",iso:"2026-07-24",region:"로잔",title:"로잔 시내 · 대성당 · 올림픽 박물관",
+  warn:"실내 3곳(대성당·PLATEFORME 10·올림픽 박물관) ~18시 마감 → 대성당 오전 먼저, 올림픽 16시 입장. 시차(-7h).",
+  tip:"로잔 시티패스(학생 CHF25·ISIC)로 3곳 입장+교통 커버. 에어비앤비라 무료 교통카드 X. 로잔행 열차 오른쪽이 호수.",
+  items:[["07:50","제네바 공항 도착","SBB 플랫폼 바로 · 시계 -7h"],["09:48","기차 → 로잔 (10:37 착)","호수쪽(오른쪽) 좌석"],
+   ["10:40","숙소 짐 보관","Rue Mauborget · 시티패스로 교통"],["11:15","대성당+첨탑·구시가","먼저! 17:30 마감·224계단 전망"],
+   ["12:30","Holy Cow! 점심","로잔 발상지 1호점(Cheneau-de-Bourg)"],["13:45","PLATEFORME 10 미술관","1~2개관 집중"],
+   ["16:00","올림픽 박물관+공원","18시 마감→16시 입장·호수뷰"],["18:15","우시 호반 산책·이른 저녁",""],
+   ["19:30","Colline de Montriond 석양","숙소 방향·일몰 ~21:00"]]},
+ {id:"D2",date:"7/25",dow:"토",iso:"2026-07-25",region:"로잔",title:"몽트뢰·시옹성 · 브베 · 라보",
+  warn:"Le Deck 예약 권장. 라보 트레킹 여름 뙤약볕·그늘 적음 → 물·모자.",
+  tip:"몽트뢰(동)→서쪽 브베→셱브르→리바 일직선. 퀸 스튜디오 무료. 트레킹 셱브르→리바 내리막(데잘레). 열차 오른쪽 호수.",
+  items:[["09:00","로잔 → 몽트뢰","오른쪽이 호수+라보 뷰"],["09:30","프레디 동상+퀸 스튜디오","무료·9시 개장"],
+   ["10:50","시옹성","CHF 13.50"],["12:30","시옹성 → 브베","열차/유람선"],
+   ["12:50","브베: 포크+채플린 동상+점심","호숫가 도보 5분"],["14:10","브베 → 셱브르","Train des Vignes ~12분"],
+   ["14:30","Le Deck 전망 와인","라보 파노라마·예약"],["15:00","라보 셱브르→생사포랭→리바","데잘레 내리막 ~1.5h"],
+   ["16:30","리바 → 유람선/기차 로잔",""]]},
+ {id:"D3",date:"7/26",dow:"일",iso:"2026-07-26",region:"체르마트",title:"체르마트 이동 · 시내 산책 · 뮈리니힐",
+  warn:"",tip:"박물관 없이 도보로 충분. 산악인 묘지 무료(등반 역사). e버스 전원 무료. 뮈리니 힐 석양 무료.",
+  items:[["09:48","기차 → 체르마트 (12:50 착)","비스프 환승·협곡 풍경"],["13:15","반호프슈트라세 점심·산책","초콜릿 시식"],
+   ["14:15","힌터도르프 구시가","400년 곡물창고·쥐막이 돌"],["15:00","성당+산악인 묘지","무료·등반 역사"],
+   ["15:30","키르히브뤼케+강변 산책","마터호른 포토스팟"],["16:15","고르너 협곡","CHF 5"],
+   ["19:00","뮈리니 힐 석양","숙소 도보 5분·무료"]]},
+ {id:"D4",date:"7/27",dow:"월",iso:"2026-07-27",region:"체르마트",title:"고르너그라트 풀데이 + 마을 무료 산책",
+  warn:"고지대 추움(겉옷). 반영은 무풍시.",tip:"키르히브뤼케 일출·고르너그라트 열차 우측 좌석. 오후 마을 산책 전부 무료.",
+  items:[["05:45","키르히브뤼케 일출","무풍 아침 베스트"],["07:00","고르너그라트 등산열차","HF CHF 66·우측 좌석"],
+   ["08:45","리펠제 마터호른 반영","로텐보덴 도보 5분"],["09:30","리펠제→리펠알프 하이킹","빙하 옆 내리막"],
+   ["13:30","반호프슈트라세·초콜릿·쇼핑","무료"],["14:30","마터 피스파 강변 산책","무료"],
+   ["15:30","빙켈마텐 예배당·동네 산책","무료"],["17:00","마터호른 뷰포인트 석양","무료"],["19:00","마을 저녁",""]]},
+ {id:"D5",date:"7/28",dow:"화",iso:"2026-07-28",region:"체르마트",title:"수네가 아침 · 인터라켄 이동",
+  warn:"13:37 체르마트 출발편 예매(SS+HF). 짐 전날 정리.",tip:"슈텔리제 무풍 아침 반영. 도착 후 인터라켄 Ost서 VIP 3일권 미리 수령.",
+  items:[["07:30","수네가→블라우헤르트","HF·첫차"],["08:00","슈텔리제 반영·5호수길","무풍 아침"],
+   ["11:00","체크아웃·마을 브런치","반호프슈트라세·강변"],["13:37","체르마트 → 인터라켄","~2h15·비스프 환승"],
+   ["15:55","VIP 3일권 미리 수령","인터라켄 Ost·CHF 225·여권/쿠폰"],["16:15","인터라켄 체크인",""],
+   ["16:30","인터라켄 둘러보기","회에마테·마을·강변"]]},
+ {id:"D6",date:"7/29",dow:"수",iso:"2026-07-29",region:"인터라켄",title:"외쉬넨·블라우제 · 스피에츠→툰 유람선",
+  warn:"헤우베르크 노출 구간(난간X)·등산화. 블라우제 수영 금지. 스피에츠 선착장 역서 도보 15분→15:34 배 여유.",
+  tip:"툰은 기차로 복귀→저녁까지 여유. 트레킹·유람선·기차 데이패스(블라우제 CHF9·외쉬넨 곤돌라 HF 별도).",
+  items:[["07:33","인터라켄 West → 칸더슈테그","데이패스 · 7:33→8:40, 8:34→9:40"],["08:50","곤돌라→외쉬넨 상부역","HF ~CHF 18"],
+   ["09:00","헤우베르크 전망 트레킹","왕복 ~2h·호수 부감"],["11:00","호숫가 휴식",""],
+   ["11:45","칸더슈테그 → 블라우제","버스/열차"],["12:00","블라우제 자연공원","CHF 9·수영 금지"],
+   ["13:15","블라우제 → 스피에츠","데이패스"],["14:30","스피에츠 산책","성·마리나·선착장 도보 15분"],
+   ["15:34","스피에츠 → 유람선 → 툰","~1h·오버호펜 성"],["16:35","툰 구시가 → 기차 인터라켄","늦게까지 운행"]]},
+ {id:"D7",date:"7/30",dow:"목",iso:"2026-07-30",region:"인터라켄",title:"VIP① 융프라우요흐 + 멘리헨",
+  warn:"빅데이(고산+2h 하이킹). 융프라우요흐 천천히·귀 먹먹.",tip:"VIP는 D5에 미리 수령완료. 아이거 익스프레스 좌측·컵라면 바우처. 하산 멘리헨→벵엔(계곡 열차).",
+  items:[["08:00","인터라켄 → 그린델발트 터미널","VIP 수령완료"],["09:00","아이거 익스프레스 → 융프라우요흐","좌측 좌석"],
+   ["10:00","융프라우요흐","스핑크스·얼음궁전·눈밭"],["12:15","하산 → 클라이네샤이덱 점심",""],
+   ["13:00","파노라마(33) → 멘리헨","EMJ 정면"],["14:30","로열워크(60) 정상 왕관","EMJ 왕관 전망대"],
+   ["15:20","멘리헨→벵엔→인터라켄","케이블카+계곡 열차"]]},
+ {id:"D8",date:"7/31",dow:"금",iso:"2026-07-31",region:"인터라켄",title:"VIP② 쉬니게 플라테 · 이젤트발트",
+  warn:"쉬니게 등산열차 우측 좌석. 파노라마 트레일 일부 노출.",tip:"알펜호른 11~14시. 이젤트발트 '사불착' 선착장. 하더쿨름 석양·유람선 VIP 무료.",
+  items:[["08:00","빌더스빌 → 쉬니게 플라테","~50분·1893 클래식·우측"],["09:15","알파인 식물원+파노라마 트레일","~2.5h·두 호수"],
+   ["12:00","산장 테라스 점심","알펜호른 11~14시"],["14:30","브리엔츠 유람선 → 이젤트발트","VIP 무료"],
+   ["15:00","이젤트발트 마을·호숫가","청록빛 브리엔츠호"],["19:00","하더쿨름 석양","두 호수 부감"]]},
+ {id:"D9",date:"8/1",dow:"토",iso:"2026-08-01",region:"인터라켄",title:"VIP③ 피르스트(트로티) · 뮈렌·빈터에그",
+  warn:"트로티바이크 현장 선착순·성수기 대기 → 아침 일찍! 하루가 김(빡빡하면 알멘드후벨/빈터에그 하나 생략).",
+  tip:"트로티 대여 ~CHF21(쿠폰 50%)·알멘드후벨 푸니쿨라 ~CHF14(HF7)만 VIP 미포함. 빈터에그→그뤼찰프 평지 30분.",
+  items:[["07:45","피르스트 곤돌라 · Cliff Walk","무료·EMJ"],["09:00","트로티바이크 → 그린델발트","~30분·5km·566m↓"],
+   ["11:00","라우터브룬넨 슈타우프바흐 전망대","잠깐"],["11:30","그뤼찰프 → 뮈렌","VIP 커버"],
+   ["12:15","뮈렌 점심·마을 산책","통나무 샬레"],["13:15","알멘드후벨 Flower Park 놀이터","푸니쿨라 ~CHF14"],
+   ["14:55","빈터에그 파노라마 스윙","EMJ 그네·목각 동물"],["15:30","빈터에그→그뤼찰프 도보","평지 30분"]]},
+ {id:"D10",date:"8/2",dow:"일",iso:"2026-08-02",region:"루체른",title:"베른 · 루체른 체크인 · 리기산",
+  warn:"일요일! HollyFood 휴무→Rosengarten. 연방궁전 내부 X. 리기 하산 막차(아르트골트나우→기차). 정상 추움.",
+  tip:"베른 교통 데이패스. 리기 데이패스로 유람선+등산열차 무료(HF 미적용). 리기 골든아워 일몰 ~20:50.",
+  items:[["08:00","인터라켄 → 베른","데이패스"],["09:15","연방궁전+Bundesterrasse","일요일 내부투어 X"],
+   ["10:15","베른 대성당+Münsterplattform","첨탑 전망·Kramgasse"],["11:15","곰공원+Muristalden","강변 곰 사육장"],
+   ["12:15","장미정원+점심","Rosengarten 일요일 영업·전망"],["14:04","기차 → 루체른","~15:05 도착"],
+   ["15:30","Hotel Luzernerhof 체크인","역 도보 7분"],["16:00","유람선→비츠나우→리기 쿨름","빨간 등산열차"],
+   ["17:30","리기 쿨름 파노라마+골든아워","일몰 ~20:50"],["21:00","하산 → 루체른","아르트골트나우→기차"]]},
+ {id:"D11",date:"8/3",dow:"월",iso:"2026-08-03",region:"루체른",title:"슈토스 리지 · 루체른 시내",
+  warn:"슈토스 리지 칼날 능선·바람·고소. 정상권 미리 온라인.",tip:"세계 최급경사 푸니쿨라. 리지 순수 도보 1.5~1.75h. 오후 구시가 컴팩트·우프쇠티 수영. 비오면 로젠가르트 미술관.",
+  items:[["07:15","기차·버스·푸니쿨라 → 슈토스","최급경사 푸니쿨라"],["09:00","클링엔슈톡 리프트 ↑","9시 개장"],
+   ["09:15","리지 트레일 → 프론알프슈톡","칼날 능선 360°"],["13:00","루체른 점심",""],
+   ["13:45","카펠교·예수회교회·슈프로이어교","14C 목조 다리"],["14:30","무제크 성벽·사자상·구시가","프레스코·성벽탑"],
+   ["16:00","우프쇠티 호숫가·수영","모래 비치"],["17:30","호숫가·KKL 석양","호반 건축"]]},
+ {id:"D12",date:"8/4",dow:"화",iso:"2026-08-04",region:"루체른",title:"루체른 아침 · 출국",
+  warn:"취리히 공항 3시간 전 도착.",tip:"아침 한산한 카펠교. 10:09 기차(구매완료).",
+  items:[["08:30","아침 호숫가·카펠교·커피","한산한 카펠교"],["10:09","기차 → 취리히 공항","11:21 착·구매완료"],
+   ["14:05","ZRH 출발 →","3시간 전 도착"]]}
+];
+
+const MAPS={
+ "상하이 푸둥(PVG) 도착":"Shanghai Pudong International Airport","와이탄(The Bund) 야경":"The Bund, Shanghai",
+ "상하이 저녁":"Nanjing Road, Shanghai",
+ "숙소 짐 보관":"Rue Mauborget 3, Lausanne","대성당+첨탑·구시가":"Cathédrale de Lausanne",
+ "Holy Cow! 점심":"Holy Cow Cheneau-de-Bourg, Lausanne","PLATEFORME 10 미술관":"Plateforme 10, Lausanne",
+ "올림픽 박물관+공원":"Musée Olympique, Lausanne","우시 호반 산책·이른 저녁":"Ouchy, Lausanne",
+ "Colline de Montriond 석양":"Colline de Montriond, Lausanne","프레디 동상+퀸 스튜디오":"Freddie Mercury Statue, Montreux",
+ "시옹성":"Château de Chillon","브베: 포크+채플린 동상+점심":"Charlie Chaplin Statue, Vevey",
+ "Le Deck 전망 와인":"Le Deck, Chexbres","라보 셱브르→생사포랭→리바":"Chexbres",
+ "리바 → 유람선/기차 로잔":"Rivaz","반호프슈트라세 점심·산책":"Bahnhofstrasse, Zermatt",
+ "힌터도르프 구시가":"Hinterdorf, Zermatt","성당+산악인 묘지":"St. Mauritius Church, Zermatt",
+ "키르히브뤼케+강변 산책":"Kirchbrücke, Zermatt","고르너 협곡":"Gornerschlucht, Zermatt",
+ "뮈리니 힐 석양":"Winkelmatten, Zermatt","키르히브뤼케 일출":"Kirchbrücke, Zermatt",
+ "고르너그라트 등산열차":"Gornergrat Bahn, Zermatt","리펠제 마터호른 반영":"Riffelsee",
+ "리펠제→리펠알프 하이킹":"Riffelalp","마터 피스파 강변 산책":"Vispa, Zermatt",
+ "빙켈마텐 예배당·동네 산책":"Winkelmatten Kapelle, Zermatt","수네가→블라우헤르트":"Sunnegga, Zermatt",
+ "슈텔리제 반영·5호수길":"Stellisee","VIP 3일권 미리 수령":"Interlaken Ost",
+ "인터라켄 둘러보기":"Interlaken","인터라켄 West → 칸더슈테그":"Kandersteg",
+ "곤돌라→외쉬넨 상부역":"Oeschinensee Bergbahnen, Kandersteg","헤우베르크 전망 트레킹":"Oeschinensee",
+ "칸더슈테그 → 블라우제":"Blausee","블라우제 자연공원":"Blausee","블라우제 → 스피에츠":"Spiez",
+ "스피에츠 산책":"Spiez Schifffahrt","스피에츠 → 유람선 → 툰":"Thun","툰 구시가 → 기차 인터라켄":"Thun Altstadt",
+ "인터라켄 → 그린델발트 터미널":"Grindelwald Terminal","아이거 익스프레스 → 융프라우요흐":"Jungfraujoch",
+ "파노라마(33) → 멘리헨":"Männlichen","멘리헨→벵엔→인터라켄":"Wengen",
+ "빌더스빌 → 쉬니게 플라테":"Schynige Platte","브리엔츠 유람선 → 이젤트발트":"Iseltwald",
+ "이젤트발트 마을·호숫가":"Iseltwald","하더쿨름 석양":"Harder Kulm",
+ "피르스트 곤돌라 · Cliff Walk":"Grindelwald First","트로티바이크 → 그린델발트":"Grindelwald",
+ "라우터브룬넨 슈타우프바흐 전망대":"Staubbachfall, Lauterbrunnen","그뤼찰프 → 뮈렌":"Mürren",
+ "뮈렌 점심·마을 산책":"Mürren","알멘드후벨 Flower Park 놀이터":"Allmendhubel, Mürren",
+ "빈터에그 파노라마 스윙":"Winteregg","빈터에그→그뤼찰프 도보":"Grütschalp",
+ "인터라켄 → 베른":"Bern","연방궁전+Bundesterrasse":"Bundeshaus, Bern",
+ "베른 대성당+Münsterplattform":"Berner Münster","곰공원+Muristalden":"Bärenpark, Bern",
+ "장미정원+점심":"Rosengarten, Bern","기차 → 루체른":"Luzern",
+ "Hotel Luzernerhof 체크인":"Hotel Luzernerhof, Luzern","유람선→비츠나우→리기 쿨름":"Rigi Kulm",
+ "리기 쿨름 파노라마+골든아워":"Rigi Kulm","기차·버스·푸니쿨라 → 슈토스":"Stoos",
+ "클링엔슈톡 리프트 ↑":"Klingenstock","리지 트레일 → 프론알프슈톡":"Fronalpstock, Stoos",
+ "카펠교·예수회교회·슈프로이어교":"Kapellbrücke, Luzern","무제크 성벽·사자상·구시가":"Museggmauer, Luzern",
+ "우프쇠티 호숫가·수영":"Ufschötti, Luzern","호숫가·KKL 석양":"KKL Luzern",
+ "아침 호숫가·카펠교·커피":"Kapellbrücke, Luzern","기차 → 취리히 공항":"Zürich Flughafen"
+};
+const COMMON=["산악 교통 15~30분 간격 — 한 번 놓치면 도미노, 여유 두기",
+ "전망 명소(융프라우요흐·쉬니게 플라테·고르너그라트·리기)는 맑은 날 우선",
+ "반영 사진(리펠제·슈텔리제)은 무풍 이른 아침이 베스트",
+ "고지대는 여름에도 쌀쌀 → 겉옷 상비, 산악 첫차가 한산"];
+
+const LINKS=[
+ ["로잔 시티패스","https://www.lausanne-tourisme.ch/en/offer/lausanne-city-pass/"],
+ ["외쉬넨 호수 웹캠","https://www.oeschinensee.ch/en/webcams/"],
+ ["슈토스 하이킹 웹캠","https://www.stoos.ch/en/pages/webcams"],
+ ["슈토스 패스","https://www.stoos.ch/en/pages/peak-experience-ticket-day-multi-day-tickets"]
+];
+
+const COST={
+ passes:[["하프 페어 카드","전 일정","CHF 150",true],["세이버 데이패스 ×2","D6·D10","CHF 88",true],
+  ["동신항운 VIP 3일","D7~9 · 7/28 수령","CHF 225",false],["로잔 시티패스(학생)","D1·ISIC","CHF 25",false]],
+ tickets:[["GVA→로잔 (SS+HF)","","CHF 9.60",true],["로잔→체르마트 (SS+HF)","","CHF 23.40",true],
+  ["체르마트→인터라켄 13:37","예매 예정","~CHF 25",false],["루체른→취리히공항 (SS+HF)","","CHF 11.60",true]],
+ stay:[["로잔","2박","272,844원"],["체르마트","2박","459,800원"],["인터라켄","5박","1,572,401원"],
+  ["루체른","2박","434,524원"],["숙소 합계","11박·2인","2,739,569원"]],
+ onsite:[["고르너그라트 (D4)","HF","CHF 66"],["외쉬넨 곤돌라+블라우제 (D6)","","CHF 27"],
+  ["First 트로티바이크 (D9)","쿠폰50%","~CHF 21"],["알멘드후벨 푸니쿨라 (D9)","HF","~CHF 7"],
+  ["슈토스 정상권 (D11)","HF","~CHF 40"],["입장료 (시옹성·고르너협곡 등)","","CHF 5~20"]],
+ flight:"2인 왕복 1,678,800원"
+};
+
+const CHECK=[
+ ["출발 전 예매·준비",[
+  "로잔 시티패스(학생 CHF25) 준비 + ISIC 발급·지참",
+  "7/28 체르마트→인터라켄 13:37 편도 예매 (SS+HF)",
+  "슈토스 정상권 온라인 예약 (Mountain'n'Rail 할인)",
+  "D6 스피에츠→툰 유람선 시각(15:34)·리기 막차 확인",
+  "여권·동신항운 할인쿠폰·현금/카드"]],
+ ["현지에서",[
+  "7/28 인터라켄 Ost서 VIP 3일권 수령 (여권·쿠폰)",
+  "D9 트로티바이크 아침 일찍(대기 회피)",
+  "당일 결제: 고르너그라트·외쉬넨·블라우제·알멘드후벨·슈토스"]],
+ ["완료됨",[
+  "하프페어 카드 구매",
+  "세이버 데이패스 ×2 (D6·D10)",
+  "숙소 4곳 예약 (합계 2,603,147원)",
+  "슈퍼세이버 티켓 3구간",
+  "로잔 에어비앤비 교통카드 X 확정 → 시티패스로 커버"]]
+];
+
+const el=id=>document.getElementById(id);
+let curDay=0;
+
+/* storage (safe for sandbox) */
+const S={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},
+ set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* pills + day */
+function renderPills(){
+ const box=el("pills");box.innerHTML="";
+ DAYS.forEach((d,i)=>{
+  const b=document.createElement("div");
+  b.className="pill"+(i===curDay?" on":"")+(d.iso===todayISO()?" today":"");
+  if(i===curDay)b.style.background=RC[d.region];
+  b.innerHTML=`${d.id}<small ${i===curDay?'style="color:rgba(255,255,255,.8)"':''}>${d.date}</small>`;
+  b.onclick=()=>{curDay=i;renderPills();renderDay();window.scrollTo(0,0)};
+  box.appendChild(b);
+ });
+}
+function renderDay(){
+ const d=DAYS[curDay],c=RC[d.region];
+ const now=nowMin(),isToday=d.iso===todayISO();
+ let nextIdx=-1;
+ if(isToday){for(let i=0;i<d.items.length;i++){if(toMin(d.items[i][0])>=now){nextIdx=i;break}}}
+ let h=`<div class="dhead"><span class="dbadge" style="background:${c}">${d.id}</span>
+   <span class="dt">${d.date} <small style="color:var(--mut);font-weight:600">${d.dow}</small></span>
+   <span class="rg">${d.region}</span></div><div class="dtitle">${d.title}</div>`;
+ d.items.forEach((it,i)=>{
+  const nx=i===nextIdx;const q=MAPS[it[1]];
+  const mp=q?`<a class="rmap" style="color:${c}" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}" aria-label="길찾기"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></a>`:'';
+  h+=`<div class="row${nx?' next':''}"><div class="rt" style="color:${c}">${it[0]}</div>
+    <div class="rc">${nx?`<span class="nexttag" style="background:${c}">다음 일정</span><br>`:''}<div class="ra">${it[1]}</div>${it[2]?`<div class="rn">${it[2]}</div>`:''}</div>${mp}</div>`;
+ });
+ el("dayview").innerHTML=h;
+ document.documentElement.style.setProperty('--accent',c);
+}
+
+/* checklist */
+function renderCheck(){
+ const saved=S.get("swiss_check")||{};let done=0,total=0;
+ let h="";
+ CHECK.forEach(g=>{
+  h+=`<div class="cgrp">${g[0]}</div>`;
+  g[1].forEach(t=>{
+   total++;const on=!!saved[t];if(on)done++;
+   h+=`<div class="citem${on?' done':''}" data-k="${t.replace(/"/g,'')}">
+     <div class="cbox">✓</div><div class="ctext">${t}</div></div>`;
+  });
+ });
+ el("checklist").innerHTML=h;
+ el("progbar").style.width=total?Math.round(done/total*100)+"%":"0";
+ document.querySelectorAll(".citem").forEach(it=>{
+  it.onclick=()=>{const s=S.get("swiss_check")||{};const k=it.getAttribute("data-k");
+   s[k]=!s[k];S.set("swiss_check",s);renderCheck();};
+ });
+}
+
+/* cost */
+function money(list,dr){return list.map(r=>`<div class="crow${r[0].includes('합계')?' tot':''}">
+  <div class="l">${r[0]}${r[1]?` <small>${r[1]}</small>`:''}${(dr&&r[3])?' <span class="done-badge">완료</span>':''}</div>
+  <div class="v">${r[dr?2:2]}</div></div>`).join("")}
+function renderCost(){
+ el("costview").innerHTML=`
+  <div class="sec">🎫 패스</div><div class="card">${money(COST.passes,true)}</div>
+  <div class="sec">🚆 교통 티켓</div><div class="card">${money(COST.tickets,true)}</div>
+  <div class="sec">🏨 숙소</div><div class="card">${money(COST.stay,false)}</div>
+  <div class="sec">💵 현지 결제 (당일)</div><div class="card">${money(COST.onsite,false)}</div>
+  <div class="sec">✈️ 항공</div><div class="card"><div class="crow"><div class="l">왕복</div><div class="v">${COST.flight.replace('2인 왕복 ','')}</div></div></div>
+  <div class="sec">🔁 환율 계산기</div>
+  <div class="conv">CHF <input id="chf" type="number" value="100" inputmode="decimal">
+   × <input id="rate" type="number" value="1850" inputmode="decimal">
+   <span class="eq" id="krw">185,000원</span></div>
+  <div class="conv">¥ <input id="cny" type="number" value="100" inputmode="decimal">
+   × <input id="cnyrate" type="number" value="220" inputmode="decimal">
+   <span class="eq" id="cnykrw">22,000원</span></div>`;
+ const calc=()=>{const r=+el("rate").value||1850;S.set("swiss_rate",r);
+  el("krw").textContent=Math.round((+el("chf").value||0)*r).toLocaleString()+"원";};
+ const calc2=()=>{const r=+el("cnyrate").value||220;S.set("swiss_cny",r);
+  el("cnykrw").textContent=Math.round((+el("cny").value||0)*r).toLocaleString()+"원";};
+ el("chf").oninput=calc;el("rate").oninput=calc;el("cny").oninput=calc2;el("cnyrate").oninput=calc2;
+}
+
+/* tips */
+function renderTip(){
+ let h=`<div class="sec">🔗 링크 모음</div><div class="linkcard">`+
+  LINKS.map(l=>{const dom=l[1].replace(/^https?:\/\//,'').split('/')[0];
+   return `<a class="linkrow" href="${l[1]}" target="_blank" rel="noopener"><div class="lt"><div class="ln">${l[0]}</div><div class="lu">${dom}</div></div><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>`;}).join("")+`</div>`;
+ h+=`<div class="sec">🧭 공통</div><div class="tipcommon">`+
+  COMMON.map(t=>`<div class="t">· ${t}</div>`).join("")+`</div><div class="sec">📅 날짜별</div>`;
+ DAYS.forEach(d=>{
+  if(!d.warn&&!d.tip)return;
+  h+=`<details class="acc"><summary><span class="mini" style="background:${RC[d.region]}">${d.id}</span>${d.date} ${d.title.split(' · ')[0]}<span class="chev">▾</span></summary>
+    <div class="body">${d.warn?`<p>⚠️ ${d.warn}</p>`:''}${d.tip?`<p>💡 ${d.tip}</p>`:''}</div></details>`;
+ });
+ el("tipview").innerHTML=h;
+}
+
+/* date helpers */
+function todayISO(){const t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0")}
+function nowMin(){const t=new Date();return t.getHours()*60+t.getMinutes()}
+function toMin(s){const[a,b]=s.split(":");return(+a)*60+(+b)}
+
+/* tabs */
+document.querySelectorAll(".tab").forEach(t=>{
+ t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");
+  const v=t.getAttribute("data-v");
+  ["day","exp","check","cost","tip"].forEach(k=>el("v-"+k).classList.toggle("hide",k!==v));
+  if(v!=="day")document.documentElement.style.setProperty('--accent','#2E7D54');else renderDay();
+  if(v==="check")renderCheck();if(v==="cost")renderCost();if(v==="tip")renderTip();if(v==="exp")renderExp();
+  window.scrollTo(0,0);
+ };
+});
+
+/* ===== 가계부 ===== */
+const CATS=[["식비","🍴","#E8552D"],["교통","🚡","#3A6E8F"],["입장·액티비티","🎫","#2E7D54"],
+ ["쇼핑","🛍️","#B9791F"],["간식","☕","#9B6A4A"],["숙소","🏨","#5A5168"],["기타","🔖","#8A938B"]];
+const PRESETS=[];
+let expForm={cur:"CHF",cat:"식비"},expView="cat";
+const getExp=()=>S.get("swiss_exp")||[];
+const setExp=a=>S.set("swiss_exp",a);
+const getRate=()=>S.get("swiss_rate")||1850;
+const getCny=()=>S.get("swiss_cny")||220;
+const catMeta=n=>CATS.find(c=>c[0]===n)||CATS[6];
+const toCHF=(e,r)=>e.cur==="CHF"?e.amt:(e.cur==="CNY"?e.amt*getCny()/r:e.amt/r);
+
+function renderExp(){
+ const exp=getExp(),rate=getRate();
+ const tot=exp.reduce((s,e)=>s+toCHF(e,rate),0);
+ let h=`<div class="exp-sum"><div class="sm">총 지출 · ${exp.length}건</div>
+   <div class="big">${Math.round(tot*rate).toLocaleString()}원</div>
+   <div class="sm">≈ CHF ${tot.toFixed(2)} · 환율 ${rate}</div></div>
+  <div class="addbox">
+   <div class="amtrow"><input class="amt" id="eamt" type="number" inputmode="decimal" placeholder="금액">
+     <button class="curbtn on" id="curtoggle">${expForm.cur}</button></div>
+   <div class="cats" id="ecats"></div>
+   <div class="exprow2"><select id="eday"></select><input id="ememo" placeholder="메모 (선택)"></div>
+   <button class="addbtn" id="eadd">+ 추가</button></div>
+  ${PRESETS.length?'<div class="presets" id="epresets"></div>':''}
+  <div class="vtabs">
+   <div class="vtab" data-ev="cat">카테고리</div><div class="vtab" data-ev="day">날짜별</div><div class="vtab" data-ev="list">목록</div></div>
+  <div id="expbody"></div>
+  <button class="expexport" id="ecsv">📋 CSV 복사 · 내보내기</button>`;
+ el("expview").innerHTML=h;
+ syncCat();syncCur();
+ el("eday").innerHTML=`<option value="">날짜(선택)</option>`+DAYS.map(d=>`<option value="${d.id}">${d.id} · ${d.date}</option>`).join("");
+ if(PRESETS.length)el("epresets").innerHTML=PRESETS.map((p,i)=>`<span class="preset" data-p="${i}">${catMeta(p[1])[1]} ${p[0]}${p[2]?` ${p[2]}`:''}</span>`).join("");
+ document.querySelectorAll(".vtab").forEach(v=>{v.classList.toggle("on",v.dataset.ev===expView);
+   v.onclick=()=>{expView=v.dataset.ev;document.querySelectorAll(".vtab").forEach(x=>x.classList.toggle("on",x===v));renderBody()};});
+ el("curtoggle").onclick=()=>{expForm.cur=expForm.cur==="CHF"?"₩":(expForm.cur==="₩"?"¥":"CHF");syncCur()};
+ el("eadd").onclick=addExp;
+ el("ecsv").onclick=expCSV;
+ if(PRESETS.length)document.querySelectorAll("#epresets .preset").forEach(p=>p.onclick=()=>{
+   const pr=PRESETS[+p.dataset.p];expForm.cat=pr[1];syncCat();
+   if(pr[2]){el("eamt").value=pr[2];}el("eamt").focus();});
+ renderBody();
+}
+function syncCat(){el("ecats").innerHTML=CATS.map(c=>{const on=expForm.cat===c[0];
+   return `<span class="catpill" data-cat="${c[0]}" style="${on?`background:${c[2]};color:#fff;border-color:${c[2]}`:''}">${c[1]} ${c[0]}</span>`;}).join("");
+ document.querySelectorAll("#ecats .catpill").forEach(p=>p.onclick=()=>{expForm.cat=p.dataset.cat;syncCat()});}
+function syncCur(){const b=el("curtoggle");b.textContent=expForm.cur;}
+function addExp(){
+ const amt=parseFloat(el("eamt").value);if(!amt||amt<=0){el("eamt").focus();return;}
+ const exp=getExp();
+ exp.push({id:Date.now(),amt:amt,cur:expForm.cur==="₩"?"KRW":(expForm.cur==="¥"?"CNY":"CHF"),cat:expForm.cat,
+   day:el("eday").value,memo:el("ememo").value.trim(),ts:Date.now()});
+ setExp(exp);renderExp();
+}
+function delExp(id){const exp=getExp().filter(e=>e.id!==id);setExp(exp);renderExp();}
+function fmt(e){if(e.cur==="CHF")return "CHF "+e.amt.toFixed(2);
+ if(e.cur==="CNY")return "¥"+(e.amt%1?e.amt.toFixed(2):e.amt.toLocaleString());
+ return "₩"+Math.round(e.amt).toLocaleString();}
+function renderBody(){
+ const exp=getExp(),rate=getRate(),body=el("expbody");
+ if(!exp.length){body.innerHTML=`<div class="empty">아직 지출이 없어요.<br>위에서 금액·카테고리 골라 추가해 보세요 💸</div>`;return;}
+ const tot=exp.reduce((s,e)=>s+toCHF(e,rate),0);
+ if(expView==="cat"){
+  const by={};CATS.forEach(c=>by[c[0]]=0);exp.forEach(e=>by[e.cat]=(by[e.cat]||0)+toCHF(e,rate));
+  const parts=CATS.map(c=>({color:c[2],val:by[c[0]]})).filter(p=>p.val>0);
+  let h=donut(parts,tot,rate);
+  h+=CATS.filter(c=>by[c[0]]>0).sort((a,b)=>by[b[0]]-by[a[0]]).map(c=>{
+    const v=by[c[0]],pct=tot?Math.round(v/tot*100):0;
+    return `<div class="barrow"><div class="bl">${c[1]} ${c[0]}</div>
+      <div class="bar"><i style="width:${pct}%;background:${c[2]}"></i></div>
+      <div class="bv">${Math.round(v*rate).toLocaleString()}원 · ${pct}%</div></div>`;}).join("");
+  body.innerHTML=h;
+ } else if(expView==="day"){
+  let h="";const order=DAYS.map(d=>d.id).concat([""]);
+  order.forEach(did=>{
+   const es=exp.filter(e=>e.day===did);if(!es.length)return;
+   const sub=es.reduce((s,e)=>s+toCHF(e,rate),0);
+   const d=DAYS.find(x=>x.id===did);
+   h+=`<div class="dh"><span>${did?`${did} · ${d?d.date:''}`:'날짜 미지정'}</span><span>${Math.round(sub*rate).toLocaleString()}원</span></div>`;
+   h+=es.map(rowHTML).join("");
+  });
+  body.innerHTML=h;
+ } else {
+  body.innerHTML=exp.slice().sort((a,b)=>b.ts-a.ts).map(rowHTML).join("");
+ }
+}
+function rowHTML(e){const c=catMeta(e.cat);
+ return `<div class="ei"><span class="dot" style="background:${c[2]}"></span>
+  <div class="ec"><div class="en">${c[1]} ${e.memo||e.cat}</div>
+   <div class="em">${e.day?e.day+' · ':''}${e.cat}</div></div>
+  <div class="ev">${fmt(e)}</div><span class="del" onclick="delExp(${e.id})">×</span></div>`;}
+function donut(parts,total,rate){
+ const r=52,c=2*Math.PI*r,cx=70,cy=70;let off=0;
+ const segs=parts.map(p=>{const len=total?p.val/total*c:0;
+   const s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${p.color}" stroke-width="20"
+     stroke-dasharray="${len} ${c-len}" stroke-dashoffset="${-off}" transform="rotate(-90 ${cx} ${cy})"/>`;
+   off+=len;return s;}).join("");
+ return `<svg class="donut" width="140" height="140" viewBox="0 0 140 140">${segs}
+   <text x="70" y="65" text-anchor="middle" font-size="11" fill="#8A938B">총 지출</text>
+   <text x="70" y="84" text-anchor="middle" font-size="13" font-weight="800" fill="#232B27">${Math.round(total*rate).toLocaleString()}원</text></svg>`;
+}
+function expCSV(){
+ const exp=getExp();if(!exp.length){alert("내보낼 지출이 없어요.");return;}
+ const rows=[["날짜","항목","카테고리","통화","금액"]].concat(
+   exp.slice().sort((a,b)=>a.ts-b.ts).map(e=>[e.day||"",e.memo||e.cat,e.cat,e.cur,e.amt]));
+ const csv=rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(",")).join("\n");
+ try{navigator.clipboard&&navigator.clipboard.writeText(csv);}catch(e){}
+ const a=document.createElement("a");
+ a.href="data:text/csv;charset=utf-8,\uFEFF"+encodeURIComponent(csv);
+ a.download="스위스_가계부.csv";document.body.appendChild(a);a.click();a.remove();
+ alert("CSV를 클립보드에 복사하고 파일로 내려받았어요.");
+}
+
+/* init: jump to today if in range */
+(function(){
+ const ti=todayISO();const idx=DAYS.findIndex(d=>d.iso===ti);
+ if(idx>=0)curDay=idx;
+ renderPills();renderDay();
+})();
+</script>
+<div class="foot">오프라인 사용: 폰 브라우저로 열고 공유 → '홈 화면에 추가'<br>체크리스트는 이 브라우저에 저장돼요</div>
+</body>
+</html>
