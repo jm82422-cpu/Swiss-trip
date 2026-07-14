@@ -6,6 +6,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="스위스">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <meta name="theme-color" content="#2E7D54">
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB6klEQVR4nO3cwQkCQRBFQRUzWUHQ/EMRVjAYE/CdxF5ZqhKYOTz6+I/rcjvAJ6etP8D/EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHKTz1h/4levrMfnc83KffG6Gy0ESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcpOO63MYeG97p2qux/TGXgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCNDsZNGh6nGxtxm+RykMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdpt5tgfM/lIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImD9AYlag77zwxMwwAAAABJRU5ErkJggg==">
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAB6klEQVR4nO3cwQkCQRBFQRUzWUHQ/EMRVjAYE/CdxF5ZqhKYOTz6+I/rcjvAJ6etP8D/EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHKTz1h/4levrMfnc83KffG6Gy0ESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcpOO63MYeG97p2qux/TGXgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCNDsZNGh6nGxtxm+RykMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdpt5tgfM/lIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImD9AYlag77zwxMwwAAAABJRU5ErkJggg==">
@@ -51,6 +53,11 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
   align-items:center;justify-content:center;background:#f0ede4;text-decoration:none;margin-left:4px}
 .rmap:active{background:#e4dfd2}
 .rmap svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.daymap{height:230px;border-radius:14px;overflow:hidden;margin:0 0 16px;border:1px solid var(--line);background:#dde5e0;position:relative;z-index:0}
+.mapph{display:flex;align-items:center;justify-content:center;height:100%;color:var(--mut);font-size:13px;text-align:center;padding:0 20px}
+.mk{width:26px;height:26px;border-radius:50%;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+.mk.home{background:#232B27;font-size:15px}
+.rnum{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;color:#fff;font-size:11px;font-weight:800;margin-right:7px;position:relative;top:-1px}
 .row.next{background:#fff;border-radius:12px;padding:11px 12px;border:none;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .nexttag{display:inline-block;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 6px;margin-bottom:3px}
 
@@ -308,6 +315,42 @@ const MAPS={
  "우프쇠티 호숫가·수영":"Ufschötti, Luzern","호숫가·KKL 석양":"KKL Luzern",
  "아침 호숫가·카펠교·커피":"Kapellbrücke, Luzern","기차 → 취리히 공항":"Zürich Flughafen"
 };
+/* 좌표 (지도용, 근사) */
+const GEO={
+ "상하이 푸둥(PVG) 도착":[31.1443,121.8083],"와이탄(The Bund) 야경":[31.2397,121.4900],"상하이 저녁":[31.2340,121.4750],
+ "기차 → 로잔 (10:37 착)":[46.5170,6.6290],"대성당+첨탑·구시가":[46.5230,6.6350],"Holy Cow! 점심":[46.5202,6.6364],
+ "PLATEFORME 10 미술관":[46.5184,6.6245],"올림픽 박물관+공원":[46.5087,6.6341],"우시 호반 산책·이른 저녁":[46.5060,6.6277],
+ "Colline de Montriond 석양":[46.5141,6.6240],
+ "로잔 → 몽트뢰":[46.4370,6.9120],"프레디 동상+퀸 스튜디오":[46.4370,6.9120],"시옹성":[46.4142,6.9277],
+ "브베: 포크+채플린 동상+점심":[46.4580,6.8420],"Le Deck 전망 와인":[46.4800,6.7800],"라보 셱브르→생사포랭→리바":[46.4700,6.7900],"리바 → 유람선/기차 로잔":[46.4720,6.7830],
+ "기차 → 체르마트 (12:50 착)":[46.0237,7.7476],"반호프슈트라세 점심·산책":[46.0210,7.7490],"힌터도르프 구시가":[46.0195,7.7480],
+ "성당+산악인 묘지":[46.0202,7.7472],"키르히브뤼케+강변 산책":[46.0198,7.7485],"고르너 협곡":[46.0110,7.7530],"뮈리니 힐 석양":[46.0135,7.7530],
+ "키르히브뤼케 일출":[46.0198,7.7485],"고르너그라트 등산열차":[45.9834,7.7846],"리펠제 마터호른 반영":[45.9833,7.7621],
+ "리펠제→리펠알프 하이킹":[46.0060,7.7515],"반호프슈트라세·초콜릿·쇼핑":[46.0210,7.7490],"마터 피스파 강변 산책":[46.0180,7.7490],
+ "빙켈마텐 예배당·동네 산책":[46.0135,7.7530],"마터호른 뷰포인트 석양":[46.0135,7.7530],
+ "수네가→블라우헤르트":[46.0128,7.7848],"슈텔리제 반영·5호수길":[46.0135,7.8006],"VIP 3일권 미리 수령":[46.6905,7.8698],"인터라켄 둘러보기":[46.6863,7.8632],
+ "인터라켄 West → 칸더슈테그":[46.4956,7.6745],"곤돌라→외쉬넨 상부역":[46.4970,7.7185],"헤우베르크 전망 트레킹":[46.4989,7.7291],
+ "블라우제 자연공원":[46.5222,7.6720],"스피에츠 산책":[46.6863,7.6805],"스피에츠 → 유람선 → 툰":[46.6890,7.6790],"툰 구시가 → 기차 인터라켄":[46.7580,7.6280],
+ "인터라켄 → 그린델발트 터미널":[46.6244,8.0388],"아이거 익스프레스 → 융프라우요흐":[46.5475,7.9856],"스핑크스·얼음궁전·눈밭":[46.5475,7.9856],
+ "파노라마(33) → 멘리헨":[46.6120,7.9480],"로열워크(60) 정상 왕관":[46.6109,7.9433],"멘리헨→벵엔→인터라켄":[46.6055,7.9220],
+ "빌더스빌 → 쉬니게 플라테":[46.6470,7.9060],"알파인 식물원+파노라마 트레일":[46.6480,7.9080],"브리엔츠 유람선 → 이젤트발트":[46.7180,7.9560],
+ "이젤트발트 마을·호숫가":[46.7180,7.9560],"하더쿨름 석양":[46.6935,7.8600],
+ "피르스트 곤돌라 · Cliff Walk":[46.6585,8.0540],"트로티바이크 → 그린델발트":[46.6244,8.0388],"라우터브룬넨 슈타우프바흐 전망대":[46.5935,7.9090],
+ "그뤼찰프 → 뮈렌":[46.5594,7.8927],"뮈렌 점심·마을 산책":[46.5594,7.8927],"알멘드후벨 Flower Park 놀이터":[46.5640,7.8930],
+ "빈터에그 파노라마 스윙":[46.5720,7.8830],"빈터에그→그뤼찰프 도보":[46.5850,7.8760],
+ "인터라켄 → 베른":[46.9480,7.4390],"연방궁전+Bundesterrasse":[46.9466,7.4443],"베른 대성당+Münsterplattform":[46.9472,7.4515],
+ "곰공원+Muristalden":[46.9481,7.4595],"장미정원+점심":[46.9509,7.4606],"기차 → 루체른":[47.0502,8.3100],
+ "Hotel Luzernerhof 체크인":[47.0505,8.3170],"유람선→비츠나우→리기 쿨름":[47.0576,8.4855],"리기 쿨름 파노라마+골든아워":[47.0576,8.4855],
+ "기차·버스·푸니쿨라 → 슈토스":[46.9770,8.6600],"클링엔슈톡 리프트 ↑":[46.9875,8.6790],"리지 트레일 → 프론알프슈톡":[46.9660,8.6720],
+ "루체른 점심":[47.0500,8.3060],"카펠교·예수회교회·슈프로이어교":[47.0517,8.3076],"무제크 성벽·사자상·구시가":[47.0555,8.3050],
+ "우프쇠티 호숫가·수영":[47.0430,8.3050],"호숫가·KKL 석양":[47.0503,8.3130],
+ "아침 호숫가·카펠교·커피":[47.0517,8.3076],"기차 → 취리히 공항":[47.4515,8.5645]
+};
+const ACCOM={"로잔":[46.5216,6.6335],"체르마트":[46.0135,7.7525],"인터라켄":[46.6800,7.8660],"루체른":[47.0505,8.3170]};
+/* [기상 숙소, 취침 숙소] */
+const STAY={D0:[null,null],D1:[null,"로잔"],D2:["로잔","로잔"],D3:["로잔","체르마트"],D4:["체르마트","체르마트"],
+ D5:["체르마트","인터라켄"],D6:["인터라켄","인터라켄"],D7:["인터라켄","인터라켄"],D8:["인터라켄","인터라켄"],
+ D9:["인터라켄","인터라켄"],D10:["인터라켄","루체른"],D11:["루체른","루체른"],D12:["루체른",null]};
 const COMMON=["산악 교통 15~30분 간격 — 한 번 놓치면 도미노, 여유 두기",
  "전망 명소(융프라우요흐·쉬니게 플라테·고르너그라트·리기)는 맑은 날 우선",
  "반영 사진(리펠제·슈텔리제)은 무풍 이른 아침이 베스트",
@@ -379,14 +422,39 @@ function renderDay(){
  let h=`<div class="dhead"><span class="dbadge" style="background:${c}">${d.id}</span>
    <span class="dt">${d.date} <small style="color:var(--mut);font-weight:600">${d.dow}</small></span>
    <span class="rg">${d.region}</span></div><div class="dtitle">${d.title}</div>`;
+ h+=`<div id="daymap" class="daymap"><div class="mapph">🗺️ 지도는 인터넷 연결 시 표시돼요</div></div>`;
+ let n=0;
  d.items.forEach((it,i)=>{
-  const nx=i===nextIdx;const q=MAPS[it[1]];
+  const nx=i===nextIdx;const q=MAPS[it[1]];const g=GEO[it[1]];
+  let num='';if(g){n++;num=`<span class="rnum" style="background:${c}">${n}</span>`;}
   const mp=q?`<a class="rmap" style="color:${c}" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}" aria-label="길찾기"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></a>`:'';
   h+=`<div class="row${nx?' next':''}"><div class="rt" style="color:${c}">${it[0]}</div>
-    <div class="rc">${nx?`<span class="nexttag" style="background:${c}">다음 일정</span><br>`:''}<div class="ra">${it[1]}</div>${it[2]?`<div class="rn">${it[2]}</div>`:''}</div>${mp}</div>`;
+    <div class="rc">${nx?`<span class="nexttag" style="background:${c}">다음 일정</span><br>`:''}<div class="ra">${num}${it[1]}</div>${it[2]?`<div class="rn">${it[2]}</div>`:''}</div>${mp}</div>`;
  });
  el("dayview").innerHTML=h;
  document.documentElement.style.setProperty('--accent',c);
+ initDayMap(d,c);
+}
+let dayMap=null;
+function initDayMap(d,color){
+ if(typeof L==="undefined")return;
+ const stay=STAY[d.id]||[null,null];const pts=[];
+ if(stay[0]&&ACCOM[stay[0]])pts.push({geo:ACCOM[stay[0]],home:true});
+ let n=0;
+ d.items.forEach(it=>{const g=GEO[it[1]];if(g){n++;pts.push({geo:g,n:n});}});
+ if(stay[1]&&ACCOM[stay[1]])pts.push({geo:ACCOM[stay[1]],home:true});
+ if(!pts.length)return;
+ if(dayMap){try{dayMap.remove()}catch(e){}dayMap=null;}
+ try{
+  dayMap=L.map("daymap",{scrollWheelZoom:false});
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(dayMap);
+  const ll=pts.map(p=>p.geo);
+  L.polyline(ll,{color:"#555",weight:3,opacity:.75,dashArray:"6 9"}).addTo(dayMap);
+  pts.forEach(p=>{const html=p.home?`<div class="mk home">🏠</div>`:`<div class="mk" style="background:${color}">${p.n}</div>`;
+   L.marker(p.geo,{icon:L.divIcon({className:"",html:html,iconSize:[28,28],iconAnchor:[14,14]})}).addTo(dayMap);});
+  dayMap.fitBounds(L.latLngBounds(ll),{padding:[38,38]});
+  setTimeout(()=>{try{dayMap.invalidateSize();dayMap.fitBounds(L.latLngBounds(ll),{padding:[38,38]});}catch(e){}},220);
+ }catch(e){}
 }
 
 /* checklist */
