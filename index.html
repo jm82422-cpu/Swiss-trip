@@ -58,6 +58,10 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 .mk{width:26px;height:26px;border-radius:50%;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
 .mk.home{background:#232B27;font-size:15px}
 .rnum{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;color:#fff;font-size:11px;font-weight:800;margin-right:7px;position:relative;top:-1px}
+.row.hasgeo{cursor:pointer}
+.row.hasgeo:active{background:#faf7f0}
+.row.hasgeo .ra{position:relative}
+.leaflet-popup-content{font-size:13px;font-weight:600;font-family:-apple-system,"Noto Sans KR",sans-serif}
 .row.next{background:#fff;border-radius:12px;padding:11px 12px;border:none;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .nexttag{display:inline-block;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 6px;margin-bottom:3px}
 
@@ -427,33 +431,44 @@ function renderDay(){
  d.items.forEach((it,i)=>{
   const nx=i===nextIdx;const q=MAPS[it[1]];const g=GEO[it[1]];
   let num='';if(g){n++;num=`<span class="rnum" style="background:${c}">${n}</span>`;}
-  const mp=q?`<a class="rmap" style="color:${c}" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}" aria-label="길찾기"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></a>`:'';
-  h+=`<div class="row${nx?' next':''}"><div class="rt" style="color:${c}">${it[0]}</div>
+  const mp=q?`<a class="rmap" style="color:${c}" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}" aria-label="길찾기"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></a>`:'';
+  h+=`<div class="row${nx?' next':''}${g?' hasgeo':''}"${g?` data-n="${n}"`:''}><div class="rt" style="color:${c}">${it[0]}</div>
     <div class="rc">${nx?`<span class="nexttag" style="background:${c}">다음 일정</span><br>`:''}<div class="ra">${num}${it[1]}</div>${it[2]?`<div class="rn">${it[2]}</div>`:''}</div>${mp}</div>`;
  });
  el("dayview").innerHTML=h;
  document.documentElement.style.setProperty('--accent',c);
  initDayMap(d,c);
+ document.querySelectorAll('#dayview .row.hasgeo').forEach(r=>{r.onclick=()=>focusStop(+r.dataset.n);});
 }
-let dayMap=null;
+let dayMap=null,dayMarkers={};
+function focusStop(n){
+ const mk=dayMarkers[n];if(typeof L==="undefined"||!dayMap||!mk)return;
+ document.getElementById('daymap').scrollIntoView({behavior:'smooth',block:'start'});
+ setTimeout(()=>{try{dayMap.flyTo(mk.getLatLng(),15,{duration:.6});mk.openPopup();}catch(e){}},260);
+}
 function initDayMap(d,color){
  if(typeof L==="undefined")return;
  const stay=STAY[d.id]||[null,null];const pts=[];
- if(stay[0]&&ACCOM[stay[0]])pts.push({geo:ACCOM[stay[0]],home:true});
+ if(stay[0]&&ACCOM[stay[0]])pts.push({geo:ACCOM[stay[0]],home:true,name:stay[0]+" 숙소 출발"});
  let n=0;
- d.items.forEach(it=>{const g=GEO[it[1]];if(g){n++;pts.push({geo:g,n:n});}});
- if(stay[1]&&ACCOM[stay[1]])pts.push({geo:ACCOM[stay[1]],home:true});
+ d.items.forEach(it=>{const g=GEO[it[1]];if(g){n++;pts.push({geo:g,n:n,name:it[0]+"  "+it[1]});}});
+ if(stay[1]&&ACCOM[stay[1]])pts.push({geo:ACCOM[stay[1]],home:true,name:stay[1]+" 숙소"+(stay[1]===stay[0]?" 복귀":" 체크인")});
  if(!pts.length)return;
  if(dayMap){try{dayMap.remove()}catch(e){}dayMap=null;}
+ dayMarkers={};
  try{
   dayMap=L.map("daymap",{scrollWheelZoom:false});
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(dayMap);
+  const voy=L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",{subdomains:"abcd",maxZoom:20,attribution:"© OSM © CARTO"}).addTo(dayMap);
+  const sat=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"© Esri"});
+  const topo=L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:"© OpenTopoMap"});
+  L.control.layers({"지도":voy,"위성":sat,"지형":topo},null,{position:"topright",collapsed:true}).addTo(dayMap);
   const ll=pts.map(p=>p.geo);
-  L.polyline(ll,{color:"#555",weight:3,opacity:.75,dashArray:"6 9"}).addTo(dayMap);
+  L.polyline(ll,{color:"#3a3a3a",weight:3,opacity:.7,dashArray:"5 9"}).addTo(dayMap);
   pts.forEach(p=>{const html=p.home?`<div class="mk home">🏠</div>`:`<div class="mk" style="background:${color}">${p.n}</div>`;
-   L.marker(p.geo,{icon:L.divIcon({className:"",html:html,iconSize:[28,28],iconAnchor:[14,14]})}).addTo(dayMap);});
-  dayMap.fitBounds(L.latLngBounds(ll),{padding:[38,38]});
-  setTimeout(()=>{try{dayMap.invalidateSize();dayMap.fitBounds(L.latLngBounds(ll),{padding:[38,38]});}catch(e){}},220);
+   const mk=L.marker(p.geo,{icon:L.divIcon({className:"",html:html,iconSize:[28,28],iconAnchor:[14,14]})}).addTo(dayMap).bindPopup(p.name);
+   if(!p.home)dayMarkers[p.n]=mk;});
+  dayMap.fitBounds(L.latLngBounds(ll),{padding:[40,40]});
+  setTimeout(()=>{try{dayMap.invalidateSize();dayMap.fitBounds(L.latLngBounds(ll),{padding:[40,40]});}catch(e){}},220);
  }catch(e){}
 }
 
