@@ -61,6 +61,9 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 .row.hasgeo{cursor:pointer}
 .row.hasgeo:active{background:#faf7f0}
 .row.hasgeo .ra{position:relative}
+.rhome{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;margin-right:7px;position:relative;top:-1px;font-size:13px}
+.homerow .ra{font-weight:700;color:#4a544c}
+.homerow{background:#faf8f3}
 .leaflet-popup-content{font-size:13px;font-weight:600;font-family:-apple-system,"Noto Sans KR",sans-serif}
 .row.next{background:#fff;border-radius:12px;padding:11px 12px;border:none;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .nexttag{display:inline-block;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 6px;margin-bottom:3px}
@@ -204,7 +207,7 @@ const DAYS=[
   warn:"실내 3곳(대성당·PLATEFORME 10·올림픽 박물관) ~18시 마감 → 대성당 오전 먼저, 올림픽 16시 입장. 시차(-7h).",
   tip:"로잔 시티패스(학생 CHF25·ISIC)로 3곳 입장+교통 커버. 에어비앤비라 무료 교통카드 X. 로잔행 열차 오른쪽이 호수.",
   items:[["07:50","제네바 공항 도착","SBB 플랫폼 바로 · 시계 -7h"],["09:48","기차 → 로잔 (10:37 착)","호수쪽(오른쪽) 좌석"],
-   ["10:40","숙소 짐 보관","Rue Mauborget · 시티패스로 교통"],["11:15","대성당+첨탑·구시가","먼저! 17:30 마감·224계단 전망"],
+   ["10:40","로잔역 코인로커 짐 보관","에어비앤비 짐보관 X · 시티패스로 교통"],["11:15","대성당+첨탑·구시가","먼저! 17:30 마감·224계단 전망"],
    ["12:30","Holy Cow! 점심","로잔 발상지 1호점(Cheneau-de-Bourg)"],["13:45","PLATEFORME 10 미술관","1~2개관 집중"],
    ["16:00","올림픽 박물관+공원","18시 마감→16시 입장·호수뷰"],["18:15","우시 호반 산책·이른 저녁",""],
    ["19:30","Colline de Montriond 석양","숙소 방향·일몰 ~21:00"]]},
@@ -283,7 +286,7 @@ const DAYS=[
 const MAPS={
  "상하이 푸둥(PVG) 도착":"Shanghai Pudong International Airport","와이탄(The Bund) 야경":"The Bund, Shanghai",
  "상하이 저녁":"Nanjing Road, Shanghai",
- "숙소 짐 보관":"Rue Mauborget 3, Lausanne","대성당+첨탑·구시가":"Cathédrale de Lausanne",
+ "로잔역 코인로커 짐 보관":"Gare de Lausanne","대성당+첨탑·구시가":"Cathédrale de Lausanne",
  "Holy Cow! 점심":"Holy Cow Cheneau-de-Bourg, Lausanne","PLATEFORME 10 미술관":"Plateforme 10, Lausanne",
  "올림픽 박물관+공원":"Musée Olympique, Lausanne","우시 호반 산책·이른 저녁":"Ouchy, Lausanne",
  "Colline de Montriond 석양":"Colline de Montriond, Lausanne","프레디 동상+퀸 스튜디오":"Freddie Mercury Statue, Montreux",
@@ -427,6 +430,8 @@ function renderDay(){
    <span class="dt">${d.date} <small style="color:var(--mut);font-weight:600">${d.dow}</small></span>
    <span class="rg">${d.region}</span></div><div class="dtitle">${d.title}</div>`;
  h+=`<div id="daymap" class="daymap"><div class="mapph">🗺️ 지도는 인터넷 연결 시 표시돼요</div></div>`;
+ const stay=STAY[d.id]||[null,null];
+ if(stay[0])h+=homeRow(stay[0],'출발','start');
  let n=0;
  d.items.forEach((it,i)=>{
   const nx=i===nextIdx;const q=MAPS[it[1]];const g=GEO[it[1]];
@@ -435,24 +440,28 @@ function renderDay(){
   h+=`<div class="row${nx?' next':''}${g?' hasgeo':''}"${g?` data-n="${n}"`:''}><div class="rt" style="color:${c}">${it[0]}</div>
     <div class="rc">${nx?`<span class="nexttag" style="background:${c}">다음 일정</span><br>`:''}<div class="ra">${num}${it[1]}</div>${it[2]?`<div class="rn">${it[2]}</div>`:''}</div>${mp}</div>`;
  });
+ if(stay[1])h+=homeRow(stay[1],stay[1]===stay[0]?'복귀':'체크인','end');
  el("dayview").innerHTML=h;
  document.documentElement.style.setProperty('--accent',c);
  initDayMap(d,c);
- document.querySelectorAll('#dayview .row.hasgeo').forEach(r=>{r.onclick=()=>focusStop(+r.dataset.n);});
+ document.querySelectorAll('#dayview .row.hasgeo').forEach(r=>{r.onclick=()=>focusStop(r.dataset.n);});
+}
+function homeRow(region,label,key){
+ return `<div class="row hasgeo homerow" data-n="${key}"><div class="rt"></div><div class="rc"><div class="ra"><span class="rhome">🏠</span>${region} 숙소 ${label}</div></div></div>`;
 }
 let dayMap=null,dayMarkers={};
 function focusStop(n){
  const mk=dayMarkers[n];if(typeof L==="undefined"||!dayMap||!mk)return;
- document.getElementById('daymap').scrollIntoView({behavior:'smooth',block:'start'});
- setTimeout(()=>{try{dayMap.flyTo(mk.getLatLng(),15,{duration:.6});mk.openPopup();}catch(e){}},260);
+ window.scrollTo({top:0,behavior:'smooth'});
+ setTimeout(()=>{try{dayMap.flyTo(mk.getLatLng(),15,{duration:.6});mk.openPopup();}catch(e){}},300);
 }
 function initDayMap(d,color){
  if(typeof L==="undefined")return;
  const stay=STAY[d.id]||[null,null];const pts=[];
- if(stay[0]&&ACCOM[stay[0]])pts.push({geo:ACCOM[stay[0]],home:true,name:stay[0]+" 숙소 출발"});
+ if(stay[0]&&ACCOM[stay[0]])pts.push({geo:ACCOM[stay[0]],home:true,key:'start',name:stay[0]+" 숙소 출발"});
  let n=0;
  d.items.forEach(it=>{const g=GEO[it[1]];if(g){n++;pts.push({geo:g,n:n,name:it[0]+"  "+it[1]});}});
- if(stay[1]&&ACCOM[stay[1]])pts.push({geo:ACCOM[stay[1]],home:true,name:stay[1]+" 숙소"+(stay[1]===stay[0]?" 복귀":" 체크인")});
+ if(stay[1]&&ACCOM[stay[1]])pts.push({geo:ACCOM[stay[1]],home:true,key:'end',name:stay[1]+" 숙소"+(stay[1]===stay[0]?" 복귀":" 체크인")});
  if(!pts.length)return;
  if(dayMap){try{dayMap.remove()}catch(e){}dayMap=null;}
  dayMarkers={};
@@ -466,7 +475,7 @@ function initDayMap(d,color){
   L.polyline(ll,{color:"#3a3a3a",weight:3,opacity:.7,dashArray:"5 9"}).addTo(dayMap);
   pts.forEach(p=>{const html=p.home?`<div class="mk home">🏠</div>`:`<div class="mk" style="background:${color}">${p.n}</div>`;
    const mk=L.marker(p.geo,{icon:L.divIcon({className:"",html:html,iconSize:[28,28],iconAnchor:[14,14]})}).addTo(dayMap).bindPopup(p.name);
-   if(!p.home)dayMarkers[p.n]=mk;});
+   if(p.home){if(p.key)dayMarkers[p.key]=mk;}else{dayMarkers[p.n]=mk;}});
   dayMap.fitBounds(L.latLngBounds(ll),{padding:[40,40]});
   setTimeout(()=>{try{dayMap.invalidateSize();dayMap.fitBounds(L.latLngBounds(ll),{padding:[40,40]});}catch(e){}},220);
  }catch(e){}
